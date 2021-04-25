@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon ejs express socket.io server.js"
+    "dev": "nodemon ejs express socket.io server.js",
+    "start": "node ./server.js"
   },
   "author": "",
   "license": "ISC",
