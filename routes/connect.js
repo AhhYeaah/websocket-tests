@@ -10,11 +10,10 @@ router.get('/', (req, res)=>{
 
 router.get('/request' , (req, res)=>{
   list = require('../server');
-  console.log(list)
   //If is there a socket in list
-    if(typeof(list) !== undefined && list.sockets.sockets){
+    if(true){
 
-      if(Object.keys(list.sockets.sockets).length !== 0 && list.sockets.sockets.constructor === Object){
+      if(true){
       //If is there an query
         if(req.query.connection){
           //Then see all sockets and pick the one that matches the query,
