@@ -4,7 +4,7 @@ const crypto = require("crypto");
 //express and socket.io
 const app  = require('express')();
 const server = require('http').createServer(app);
-server.listen(process.env.PORT || 3000);
+server.listen(process.env.PORT);
 const io = require('socket.io')(server);
 
 //cors
