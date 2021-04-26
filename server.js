@@ -7,7 +7,7 @@ const server = require('http').createServer(app);
 const io = require('socket.io')(server);
 
 //cors
-const cors = require('cors')
+app.use(require('cors')());
 
 //mongoose for db and dotenv to hide the db credentials
 const mongoose = require('mongoose')
@@ -22,8 +22,7 @@ mongoose.connect(process.env.DB_CONNECTION,
 /* This allows me to view html files and render them */
 const path = require('path');
 
-server.use(cors());
-app.use(cors());
+
 
 app.set('views', path.join(__dirname, 'public'));
 app.engine('html', require('ejs').renderFile);
