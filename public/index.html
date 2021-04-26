@@ -8,7 +8,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.0.5/socket.io.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"> </script>
     <script type="text/javascript">
-        var socket = io('https://myapp-worldagenda.herokuapp.com:' + process.env.PORT)
+        var url = ('https://myapp-worldagenda.herokuapp.com/' + process.env.PORT)
+        var socket = io(url)
     </script>
 </head>
 <body>

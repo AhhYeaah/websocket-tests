@@ -35,7 +35,7 @@ function refreshList(){
 }
 
 app.use('/connect', postRoute);
-app.use('/', getRoute)
+app.use('/', getRoute);
 
 
 io.on('connection', socket=>{
