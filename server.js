@@ -21,7 +21,9 @@ mongoose.connect(process.env.DB_CONNECTION,
 
 /* This allows me to view html files and render them */
 const path = require('path');
+
 app.use(cors())
+
 app.set('views', path.join(__dirname, 'public'));
 app.engine('html', require('ejs').renderFile);
 app.set('view engine' , 'html');
