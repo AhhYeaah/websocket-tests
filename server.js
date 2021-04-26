@@ -4,6 +4,7 @@ const crypto = require("crypto");
 //express and socket.io
 const app  = require('express')();
 const server = require('http').createServer(app);
+server.listen(process.env.PORT || 3000);
 const io = require('socket.io')(server);
 
 //cors
@@ -65,7 +66,3 @@ io.on('connection', socket=>{
     console.log(`Socket desconectado: ${socket.shuffle}`);
   })
 });
-
-
-
-server.listen(process.env.PORT || 3000);
