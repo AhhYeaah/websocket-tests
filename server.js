@@ -21,15 +21,13 @@ mongoose.connect(process.env.DB_CONNECTION,
 
 /* This allows me to view html files and render them */
 const path = require('path');
-
-
-
 app.set('views', path.join(__dirname, 'public'));
 app.engine('html', require('ejs').renderFile);
 app.set('view engine' , 'html');
 
 //Importing routes from routes files
 const postRoute = require('./routes/connect');
+const getRoute = require('./routes/page')
 
 function refreshList(){
   let only_io = io;
@@ -37,11 +35,7 @@ function refreshList(){
 }
 
 app.use('/connect', postRoute);
-
-app.get('/', (req, res)=>{
-  res.render('index.html');
-});
-
+app.use('/', getRoute)
 
 
 io.on('connection', socket=>{
