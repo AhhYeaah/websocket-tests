@@ -1,0 +1,11 @@
+This is a simple server that I did out of curiosity. I was aiming at the web.whatsapp authentication method
+
+So, basicaly this is a server that connects with the user using a socket from socket.io 
+Them, proceds to shuffle it, and them show it to the user as an QRCode
+
+I also made a react native aplication to read that qrcode, using the smartphone camera
+When it reads the qrcode, it sends a request to the server using axios to make a connection in url/connect/request?connection= + code read"
+
+Them, when this happens the server loops through all the sockest that are connected and, if the code exists is sends to the page the message "sucess"
+
+I used heroku to make the code work, you can check it out on https://myapp-worldagenda.herokuapp.com/
