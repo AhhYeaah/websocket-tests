@@ -9,3 +9,14 @@ When it reads the qrcode, it sends a request to the server using axios to make a
 Them, when this happens the server loops through all the sockest that are connected and, if the code exists is sends to the page the message "sucess"
 
 I used heroku to make the code work, you can check it out on https://myapp-worldagenda.herokuapp.com/
+
+I know that you dont have the app, but, you can simply do what the app does if you use https://myapp-worldagenda.herokuapp.com/connect/
+Keep in mind that for everything to work, the page containing the qrcode must be openned.
+
+1) You will have to right click on the page, inspect elements
+2) Then go to the div called qrcode, click it and them you will see the code that you will need, copy it
+3) OPEN ANOTHER TAB, DONT CLOSE THE QRCODE TAB.
+4) Get to https://myapp-worldagenda.herokuapp.com/connect/
+5) Paste the code and click on enter
+
+If the code is right it will make an alert on the qr page, if its not, them it will infinitly load.
