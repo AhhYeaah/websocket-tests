@@ -20,3 +20,5 @@ Keep in mind that for everything to work, the page containing the qrcode must be
 5) Paste the code and click on enter
 
 If the code is right it will make an alert on the qr page, if its not, them it will infinitly load.
+
+EDIT: you cant do that anymore, soon i will upload the app code to github so you can test it if you want to
