@@ -62,10 +62,10 @@ io.on('connection', socket=>{
   socket.shuffle = shuffle
 
   socket.emit('sendMessage', shuffle);
-  refreshList(socket)
+  refreshList()
 
   socket.on('disconnect', () =>{
-    refreshList(socket)
+    refreshList()
     console.log(`Socket desconectado: ${socket.shuffle}`);
   })
 });
