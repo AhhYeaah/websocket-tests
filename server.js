@@ -2,7 +2,8 @@
 const crypto = require("crypto");
 
 //express and socket.io
-const app  = require('express')();
+const express = require('express')
+const app  = express();
 const server = require('http').createServer(app);
 const io = require('socket.io')(server);
 
@@ -26,16 +27,25 @@ app.engine('html', require('ejs').renderFile);
 app.set('view engine' , 'html');
 
 //Importing routes from routes files
-const postRoute = require('./routes/connect');
+const postRoute = require('./routes/connect.js');
 const getRoute = require('./routes/page')
 
 function refreshList(){
-  let only_io = io;
-  module.exports = only_io;
+  let amount = 0
+  io.sockets.sockets.forEach(element =>{
+    amount++
+  })
+  if(amount != 0){
+    module.exports = io
+  }else{
+    module.exports = undefined
+  }
 }
 
 app.use('/connect', postRoute);
+
 app.use('/', getRoute);
+
 
 
 io.on('connection', socket=>{
@@ -43,19 +53,19 @@ io.on('connection', socket=>{
   console.log(`Socket conectado: ${socket.id}`);
 
   //Then I will get the id and join it with random bytes
-  var id = crypto.randomBytes(50).toString('hex') + socket.id
+  let id = crypto.randomBytes(50).toString('hex') + socket.id
   //Then, im going to shuffle it
-  var shuffle = id.split('').sort(function(){return 0.5-Math.random()}).join('');
+  let shuffle = id.split('').sort(function(){return 0.5-Math.random()}).join('');
   //Thats the client id.
   console.log(shuffle);
 
   socket.shuffle = shuffle
 
   socket.emit('sendMessage', shuffle);
-  refreshList()
+  refreshList(socket)
 
   socket.on('disconnect', () =>{
-    refreshList()
+    refreshList(socket)
     console.log(`Socket desconectado: ${socket.shuffle}`);
   })
 });
