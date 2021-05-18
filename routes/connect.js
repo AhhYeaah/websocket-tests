@@ -39,12 +39,17 @@ router.post('/request', (req, res) => {
                      * be stored in a array, later on I will test this array and see if it contains a true
                      * (In that case, the code sended by the user will be valid)
                      */
+
                     for (let index = 0; index < socket_list.length; index++) {
                         const element = socket_list[index];
+
                         if(element.shuffle == req.body.PassWord.QRCode){
+
                             res.status(200).send("Sucess")
                             element.emit('refreshPage', 'Sucess')
+
                         }else if(index == socket_list.length-1){
+                            
                             res.status(404).send("Not found");
                         }
                     }

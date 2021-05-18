@@ -31,11 +31,13 @@ const postRoute = require('./routes/connect.js');
 const getRoute = require('./routes/page')
 
 function refreshList(){
+  //This basicaly refreshs the list of sockets on export.modules
+  // if the amount of sockets is greater than 0
   let amount = 0
   io.sockets.sockets.forEach(element =>{
     amount++
   })
-  if(amount != 0){
+  if(amount < 0){
     module.exports = io
   }else{
     module.exports = undefined
